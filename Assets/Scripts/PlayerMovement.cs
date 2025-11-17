@@ -1,13 +1,29 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public float jumpForce = 7f;
 
+    public InputAction move;
+    public InputAction jump;
+
     private Rigidbody2D rb;
     private bool isGrounded;
     public Animator anim;
+
+    void OnEnable()
+    {
+        move.Enable();
+        jump.Enable();
+    }
+
+    void OnDisable()
+    {
+        move.Disable();
+        jump.Disable();
+    }
 
     void Start()
     {
@@ -16,18 +32,17 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        float move = Input.GetAxis("Horizontal");
-        rb.linearVelocity = new Vector2(move * moveSpeed, rb.linearVelocity.y);
-        anim.SetBool("Walking", Mathf.Abs(move) > 0.1f);
+        float moveInput = Input.GetAxis("Horizontal");
+        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+        anim.SetBool("Walking", Mathf.Abs(moveInput) > 0.1f);
 
         // Flip sprite when walking
-        if (move != 0)
-            transform.localScale = new Vector3(Mathf.Sign(-move), 1, 1);
-
+        if (moveInput != 0)
+            transform.localScale = new Vector3(Mathf.Sign(-moveInput), 1, 1);
         anim.SetBool("Falling", !isGrounded);
 
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (jump.WasPressedThisFrame() && isGrounded)
         {
             anim.SetTrigger("Jump");
         }

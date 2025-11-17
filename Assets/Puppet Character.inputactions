@@ -34,16 +34,16 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Action1",
+                    "name": "Punch",
                     "type": "Button",
                     "id": "70f60d24-7bf2-4976-910f-c5185ae40c50",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Action2",
+                    "name": "Parry",
                     "type": "Button",
                     "id": "a9856ed5-0a18-43df-ab7b-2db38723bddc",
                     "expectedControlType": "",
@@ -130,23 +130,12 @@
                 },
                 {
                     "name": "",
-                    "id": "36556274-0e1c-476d-8621-200bae5c8e8e",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Action1",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "af337fba-d4b9-4853-be63-70496db92675",
                     "path": "<Keyboard>/j",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Action1",
+                    "action": "Punch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -157,18 +146,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Action1",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a6e9c181-a9e8-4ad3-a954-247ab77a47a1",
-                    "path": "<Mouse>/rightButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Action2",
+                    "action": "Punch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -179,7 +157,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Action2",
+                    "action": "Parry",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -190,7 +168,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Action2",
+                    "action": "Parry",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

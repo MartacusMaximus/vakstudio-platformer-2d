@@ -1,27 +1,37 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerCombat : MonoBehaviour
 {
-    public string attackButton = "Action1";
+    public InputAction attackAction;
 
     public Animator anim;
     private int queuedAttack = -1;
     private int currentAttack = -1;
+    private bool canStartAttack = true;
+    private bool isGrounded = true;
 
-    void Start()
+    void OnEnable()
     {
-        anim = GetComponent<Animator>();
+        attackAction.Enable();
+    }
+
+    void OnDisable()
+    {
+        attackAction.Disable();
     }
 
     void Update()
     {
-
-        if (Input.GetButtonDown(attackButton))
+        if (attackAction.WasPressedThisFrame())
         {
-            Debug.Log("Action1");
+
             if (currentAttack == -1)
             {
-                StartAttack(0);
+                if (canStartAttack)
+                {
+                    StartAttack(0);
+                }
             }
             else
             {
@@ -35,6 +45,7 @@ public class PlayerCombat : MonoBehaviour
     {
         currentAttack = index;
         queuedAttack = -1;
+        anim.SetBool("CanStartAttack", false);
     }
 
     public void AttackAnimationEnd()
@@ -47,6 +58,7 @@ public class PlayerCombat : MonoBehaviour
         {
             currentAttack = -1;
             anim.SetInteger("AttackIndex", -1);
+            anim.SetBool("CanStartAttack", true);
         }
     }
 
@@ -54,6 +66,11 @@ public class PlayerCombat : MonoBehaviour
     {
         currentAttack = index;
         anim.SetInteger("AttackIndex", index);
-        anim.SetTrigger("AttackTrigger");
+        anim.SetTrigger("Action1");
+    }
+    public void SetGrounded(bool grounded)
+    {
+        isGrounded = grounded;
+        anim.SetBool("Falling", !grounded);
     }
 }
