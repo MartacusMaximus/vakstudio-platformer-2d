@@ -1890,6 +1890,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   moveSpeed: 5
   jumpForce: 7
+  move:
+    m_Name: Move
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: cec2e9a4-4799-436c-bcf7-ac706fc333e9
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  jump:
+    m_Name: Jump
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: ca5ab4e3-e172-45e8-aba1-26ac1ccfd9b9
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   anim: {fileID: 1868825071624184620}
 --- !u!114 &3437940552229672079
 MonoBehaviour:
@@ -1903,6 +1921,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad29871a766d3e24d9ea8ba535a9e691, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  attackAction:
+    m_Name: Attack
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 85cd26b5-69d2-4a19-8468-6867bbbc4a8e
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  anim: {fileID: 0}
 --- !u!1 &6225909620508745133
 GameObject:
   m_ObjectHideFlags: 0
