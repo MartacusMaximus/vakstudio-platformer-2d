@@ -9,8 +9,8 @@ public class PlayerMovement : MonoBehaviour
     public InputAction move;
     public InputAction jump;
 
-    private Rigidbody2D rb;
-    private bool isGrounded;
+    public Rigidbody2D rb;
+    public bool isGrounded;
     public Animator anim;
 
     void OnEnable()
