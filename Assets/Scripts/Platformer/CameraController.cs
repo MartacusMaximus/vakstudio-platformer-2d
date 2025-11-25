@@ -18,11 +18,36 @@ public class CameraController : MonoBehaviour
     private bool isFalling;
     public float maxVertOffset = 5f;
 
+    public PolygonCollider2D cameraBounds;
+    private float camHalfWidth;
+    private float camHalfHeight;
+
 
     void Start()
     {
         targetPoint = new Vector3(player.transform.position.x, player.transform.position.y, transform.position.z);
+
+        Camera cam = Camera.main;
+        camHalfHeight = cam.orthographicSize;
+        camHalfWidth = camHalfHeight * cam.aspect;
+
     }
+
+    private Vector3 ClampToBounds(Vector3 pos)
+    {
+        Bounds b = cameraBounds.bounds;
+
+        float minX = b.min.x + camHalfWidth;
+        float maxX = b.max.x - camHalfWidth;
+        float minY = b.min.y + camHalfHeight;
+        float maxY = b.max.y - camHalfHeight;
+
+        pos.x = Mathf.Clamp(pos.x, minX, maxX);
+        pos.y = Mathf.Clamp(pos.y, minY, maxY);
+
+        return pos;
+    }
+
 
     // Update is called once per frame
     void FixedUpdate()
@@ -61,6 +86,8 @@ public class CameraController : MonoBehaviour
 
         targetPoint.x = player.transform.position.x + lookOffset;
 
-        transform.position = Vector3.Lerp(transform.position, targetPoint, moveSpeed * Time.deltaTime);
+        Vector3 newPos = Vector3.Lerp(transform.position, targetPoint, moveSpeed * Time.deltaTime);
+        transform.position = ClampToBounds(newPos);
+
     }
 }

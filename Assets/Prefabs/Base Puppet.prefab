@@ -1755,6 +1755,7 @@ GameObject:
   - component: {fileID: 5776812184036464003}
   - component: {fileID: 2014131309302452190}
   - component: {fileID: 3437940552229672079}
+  - component: {fileID: 7832477049384442829}
   m_Layer: 0
   m_Name: Base Puppet
   m_TagString: Untagged
@@ -1772,7 +1773,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.132, z: -6.34}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2640772429189150387}
@@ -1802,7 +1803,7 @@ Animator:
   m_Avatar: {fileID: 9000000, guid: 917d3a8e155bec04e8fbda49585d0e99, type: 2}
   m_Controller: {fileID: 9100000, guid: a09968942ef6b49409998a00b89c66e6, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 1
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -1885,16 +1886,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 6086685963083382478}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb4d096c1439b5448e1f112873bc194, type: 3}
+  m_Script: {fileID: 11500000, guid: b01de2295612d504e81046cbcf753297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
   moveSpeed: 5
-  jumpForce: 7
+  jumpForce: 5
   move:
     m_Name: Move
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: cec2e9a4-4799-436c-bcf7-ac706fc333e9
+    m_Id: cec760d3-0db3-4d79-a744-1c63884d87ac
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
@@ -1903,11 +1904,21 @@ MonoBehaviour:
     m_Name: Jump
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: ca5ab4e3-e172-45e8-aba1-26ac1ccfd9b9
+    m_Id: ff9982e5-78dd-4ae0-9c9d-3ab995cf9408
     m_Processors: 
     m_Interactions: 
-    m_SingletonActionBindings: []
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 8960352f-25cb-4f8d-bfae-bae1cc981675
+      m_Path: <Keyboard>/space
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Jump
+      m_Flags: 0
     m_Flags: 0
+  rb: {fileID: 1356517656496515062}
+  isGrounded: 1
   anim: {fileID: 1868825071624184620}
 --- !u!114 &3437940552229672079
 MonoBehaviour:
@@ -1918,19 +1929,58 @@ MonoBehaviour:
   m_GameObject: {fileID: 6086685963083382478}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad29871a766d3e24d9ea8ba535a9e691, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d6dfb00f05b7ba48aa5fd2df2c420fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
   attackAction:
     m_Name: Attack
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 85cd26b5-69d2-4a19-8468-6867bbbc4a8e
+    m_Id: c6e60301-e663-4a24-8b4e-8bef343a87ae
     m_Processors: 
     m_Interactions: 
-    m_SingletonActionBindings: []
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 1995176b-7cbf-4681-9884-9a83d618d229
+      m_Path: <Keyboard>/q
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Attack
+      m_Flags: 0
     m_Flags: 0
-  anim: {fileID: 0}
+  anim: {fileID: 1868825071624184620}
+--- !u!114 &7832477049384442829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6086685963083382478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2651f182a5930741905657a7e531bb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  interactAction:
+    m_Name: Interact
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: b5cfdb1e-3ae4-405f-8e15-1e872a7f675b
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 5a19394e-6606-479e-9af8-0acef5e393f8
+      m_Path: <Keyboard>/e
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Interact
+      m_Flags: 0
+    m_Flags: 0
+  promptUI: {fileID: 0}
+  promptText: {fileID: 0}
 --- !u!1 &6225909620508745133
 GameObject:
   m_ObjectHideFlags: 0
