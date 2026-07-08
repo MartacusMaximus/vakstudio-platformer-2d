@@ -635,6 +635,7 @@ MonoBehaviour:
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -781,6 +782,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2014131309302452190, guid: e7207e5d6471ec44295eee465bb0586b, type: 3}
+      propertyPath: jumpForce
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6086685963083382478, guid: e7207e5d6471ec44295eee465bb0586b, type: 3}
       propertyPath: m_Name
       value: Base Puppet
@@ -947,7 +952,7 @@ Camera:
   far clip plane: 1000
   field of view: 34.4
   orthographic: 1
-  orthographic size: 4
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -987,14 +992,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d55ec095db9b1cd4599f47f0ee62801f, type: 3}
+  m_Script: {fileID: 11500000, guid: 03fdb4027b968b34db15062b5ef71b57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
   player: {fileID: 733901830}
-  moveSpeed: 3
+  moveSpeed: 2
   lookAheadDistance: 3
-  lookAheadSpeed: 4
-  maxVertOffset: 3
+  lookAheadSpeed: 3
+  maxVertOffset: 5
   cameraBounds: {fileID: 1454521104}
 --- !u!1 &1017562227
 GameObject:
@@ -1024,10 +1029,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1017562227}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aca8ed4c227eb1f4593d10568c28174f, type: 3}
+  m_Script: {fileID: 11500000, guid: bcdee45f3f0236249a769b400edeae5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  itemName: RED BOX
+  itemName: Mysterious Object
 --- !u!61 &1017562229
 BoxCollider2D:
   m_ObjectHideFlags: 0

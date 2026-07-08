@@ -11,3 +11,4 @@ public class NPCInteract : MonoBehaviour, IInteractable
         // Dialogue system here
     }
 }
+    
